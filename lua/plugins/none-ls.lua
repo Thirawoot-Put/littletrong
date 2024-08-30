@@ -14,6 +14,7 @@ return {
         null_ls.builtins.formatting.isort,
         null_ls.builtins.diagnostics.rubocop,
         null_ls.builtins.formatting.rubocop,
+        null_ls.builtins.formatting.prisma_format,
 
         require("none-ls.diagnostics.eslint_d")
       },
