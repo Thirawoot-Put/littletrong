@@ -79,7 +79,7 @@ return {
 
         lsp_zero.default_keymaps(opts)
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>")
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts, { silent = true, noremap = true })
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts, { silent = true, noremap = true })
         vim.keymap.set("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         vim.keymap.set("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
         vim.keymap.set("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
@@ -97,12 +97,12 @@ return {
 
       lspconfig.tsserver.setup({
         root_dir = lspconfig.util.root_pattern(
-          '.eslintrc',
-          '.eslintrc.js',
-          '.eslintrc.cjs',
-          '.eslintrc.yaml',
-          '.eslintrc.yml',
-          '.eslintrc.json'
+          ".eslintrc",
+          ".eslintrc.js",
+          ".eslintrc.cjs",
+          ".eslintrc.yaml",
+          ".eslintrc.yml",
+          ".eslintrc.json"
         -- Disabled to prevent "No ESLint configuration found" exceptions
         -- 'package.json',
         ),
@@ -115,7 +115,7 @@ return {
       mason_lspconfig.setup({
         ensure_installed = {
           -- golang
-          "gopls",
+          -- "gopls",
           -- "golangci_lint_ls",
 
           -- typescript/javascript
@@ -138,7 +138,7 @@ return {
           "eslint",
 
           -- haskell
-          "hls",
+          -- "hls",
 
           -- openapi/yaml
           "spectral",
@@ -151,6 +151,9 @@ return {
           -- sql
           "sqlls",
           "sqls",
+
+          -- rust
+          "rust_analyzer",
         },
         automatic_installation = true,
         handlers = {
