@@ -1,4 +1,3 @@
----@diagnostic disable: redundant-value
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = {
@@ -47,9 +46,9 @@ return {
 
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>", {desc = "Toggle file explorer"})
-    keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>", {desc = "Toggle file explorer on current buffer"})
-    keymap.set("n", "<leader>er", ":NvimTreeRefresh<CR>", {desc = "Refresh file explorer"})
-    keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", {desc = "Collapse file explorer"})
+    keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = "Toggle file explorer on current buffer" })
+    keymap.set("n", "<leader>er", ":NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
+    keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
   end
 }
