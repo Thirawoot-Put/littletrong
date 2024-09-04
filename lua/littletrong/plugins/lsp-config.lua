@@ -79,7 +79,7 @@ return {
 
         lsp_zero.default_keymaps(opts)
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>")
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts, { silent = true, noremap = true })
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         vim.keymap.set("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
         vim.keymap.set("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
