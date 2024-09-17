@@ -115,7 +115,7 @@ return {
       mason_lspconfig.setup({
         ensure_installed = {
           -- golang
-          -- "gopls",
+          "gopls",
           -- "golangci_lint_ls",
 
           -- typescript/javascript
