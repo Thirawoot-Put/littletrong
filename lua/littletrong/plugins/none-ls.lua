@@ -1,14 +1,17 @@
 return {
   "nvimtools/none-ls.nvim",
+  dependencies = {
+    "nvimtools/none-ls-extras.nvim",
+  },
   config = function()
-    local null_ls = require("null-ls")
-    null_ls.setup({
+    local nls = require("null-ls")
+    nls.setup({
       sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.diagnostics.erb_lint,
-        null_ls.builtins.diagnostics.rubocop,
-        null_ls.builtins.formatting.rubocop,
+        nls.builtins.formatting.stylua,
+        nls.builtins.formatting.prettier,
+        nls.builtins.diagnostics.erb_lint,
+        nls.builtins.diagnostics.rubocop,
+        nls.builtins.formatting.rubocop,
       },
     })
 
