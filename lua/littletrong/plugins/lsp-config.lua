@@ -70,6 +70,13 @@ return {
         filetypes = { "go", "gomod" },
       })
 
+      lspconfig.sqls.setup({
+        on_attach = function(client, _)
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end,
+      })
+
       mason_lspconfig.setup({
         ensure_installed = {
           -- golang
