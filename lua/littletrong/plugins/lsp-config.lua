@@ -119,6 +119,9 @@ return {
 
           -- rust
           "rust_analyzer",
+
+          -- php
+          "intelephense",
         },
         automatic_installation = true,
         handlers = {
