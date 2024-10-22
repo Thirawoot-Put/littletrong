@@ -37,3 +37,19 @@ vim.api.nvim_buf_set_keymap(
   "<cmd>lua require('kulala').toggle_view()<cr>",
   { noremap = true, silent = true, desc = "Toggle between body and headers" }
 )
+
+vim.api.nvim_buf_set_keymap(
+  0,
+  "n",
+  "<leader>rco",
+  "<cmd>lua require('kulala').copy()<cr>",
+  { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
+)
+
+vim.api.nvim_buf_set_keymap(
+  0,
+  "n",
+  "<leader>rci",
+  "<cmd>lua require('kulala').from_curl()<cr>",
+  { noremap = true, silent = true, desc = "Paste curl from clipboard as http request" }
+)
