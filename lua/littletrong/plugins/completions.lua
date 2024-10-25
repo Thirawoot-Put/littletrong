@@ -74,15 +74,39 @@ return {
       }),
     })
 
-    -- Create an autocmd to apply the source to specific filetypes
+    -- Dadbod: Create an autocmd to apply the source to specific filetypes
+    -- vim.api.nvim_create_autocmd("FileType", {
+    --   pattern = { "sql", "mysql", "plsql" },
+    --   callback = function()
+    --     cmp.setup.buffer({
+    --       sources = {
+    --         { name = "vim-dadbod-completion" },
+    --       },
+    --     })
+    --   end,
+    -- })
+
+    -- ******* use this for separate normal sql file and dadbod ********
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "sql", "mysql", "plsql" },
       callback = function()
-        cmp.setup.buffer({
-          sources = {
-            { name = "vim-dadbod-completion" },
-          },
-        })
+        local is_dadbod_session = vim.fn.exists(":DB") == 2 -- Detect if `vim-dadbod` is in use
+        if is_dadbod_session then
+          cmp.setup.buffer({
+            sources = {
+              { name = "vim-dadbod-completion" }, -- Use Dadbod completion only in DB sessions
+            },
+          })
+        else
+          -- Normal SQL completion for non-Dadbod files
+          cmp.setup.buffer({
+            sources = cmp.config.sources({
+              { name = "buffer" },
+              { name = "path" },
+              { name = "nvim_lsp" }, -- Use LSP if available
+            }),
+          })
+        end
       end,
     })
   end,
