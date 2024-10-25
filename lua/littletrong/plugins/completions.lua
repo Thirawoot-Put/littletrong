@@ -1,57 +1,3 @@
---return {
---  {
---    "hrsh7th/cmp-nvim-lsp"
---  },
---  {
---    "L3MON4D3/LuaSnip",
---    dependencies = {
---      "saadparwaiz1/cmp_luasnip",
---      "rafamadriz/friendly-snippets",
---      "hrsh7th/cmp-buffer",
---    },
---  },
---  {
---    "hrsh7th/nvim-cmp",
---    config = function()
---      local cmp = require("cmp")
---      require("luasnip.loaders.from_vscode").lazy_load()
---
---      cmp.setup({
---        snippet = {
---          expand = function(args)
---            require("luasnip").lsp_expand(args.body)
---          end,
---        },
---        window = {
---          completion = cmp.config.window.bordered(),
---          documentation = cmp.config.window.bordered(),
---        },
---        mapping = cmp.mapping.preset.insert({
---          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
---          ["<C-f>"] = cmp.mapping.scroll_docs(4),
---          ["<C-Space>"] = cmp.mapping.complete(),
---          ["<C-e>"] = cmp.mapping.abort(),
---          ["<CR>"] = cmp.mapping.confirm({ select = true }),
---        }),
---        sources = cmp.config.sources({
---          { name = "luasnip" },
---        }, {
---          { name = "buffer" },
---        }),
---      })
---    end,
---  },
---  {
---    "hrsh7th/cmp-path",
---    config = function()
---      require('cmp').setup {
---        sources = {
---          { name = 'path' }
---        }
---      }
---    end
---  },
---}
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
@@ -59,9 +5,9 @@ return {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-path",           -- source for file system paths
-    "L3MON4D3/LuaSnip",           -- snippet engine
-    "saadparwaiz1/cmp_luasnip",   -- for autocompletion
+    "hrsh7th/cmp-path",             -- source for file system paths
+    "L3MON4D3/LuaSnip",             -- snippet engine
+    "saadparwaiz1/cmp_luasnip",     -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "VonHeikemen/lsp-zero.nvim",
   },
@@ -92,7 +38,7 @@ return {
         ["<C-b>"] = cmp_action.luasnip_jump_forward(),
         ["<C-f>"] = cmp_action.luasnip_jump_backward(),
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(),    -- close completion window
+        ["<C-e>"] = cmp.mapping.abort(),        -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp_action.luasnip_supertab(),
         ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
@@ -102,8 +48,8 @@ return {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
+        { name = "buffer" },  -- text within current buffer
+        { name = "path" },    -- file system paths
       }),
       window = {
         completion = cmp.config.window.bordered(),
@@ -126,6 +72,18 @@ return {
           },
         },
       }),
+    })
+
+    -- Create an autocmd to apply the source to specific filetypes
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "sql", "mysql", "plsql" },
+      callback = function()
+        cmp.setup.buffer({
+          sources = {
+            { name = "vim-dadbod-completion" },
+          },
+        })
+      end,
     })
   end,
 }
