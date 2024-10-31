@@ -5,17 +5,26 @@ return {
     config = function()
       local alpha = require("alpha")
       local dashboard = require("alpha.themes.dashboard")
+      local ctp = require("catppuccin.palettes").get_palette() -- Get the Catppuccin color palette
+
+      vim.api.nvim_set_hl(0, "DashboardHeader", { fg = ctp.lavender })
 
       dashboard.section.header.val = {
+        [[                                                                                         ]],
+        [[     __     ______  ______  ______  __       ____               ______   __  __          ]],
+        [[    /\ \   /\__  _\/\__  _\/\__  _\/\ \     /\  _`\    /'\_/`\ /\  _  \ /\ \/\ \         ]],
+        [[    \ \ \  \/_/\ \/\/_/\ \/\/_/\ \/\ \ \    \ \ \L\_\ /\      \\ \ \L\ \\ \ `\\ \        ]],
+        [[     \ \ \  __\ \ \   \ \ \   \ \ \ \ \ \  __\ \  _\L \ \ \__\ \\ \  __ \\ \ , ` \       ]],
+        [[      \ \ \L\ \\_\ \__ \ \ \   \ \ \ \ \ \L\ \\ \ \L\ \\ \ \_/\ \\ \ \/\ \\ \ \`\ \      ]],
+        [[       \ \____//\_____\ \ \_\   \ \_\ \ \____/ \ \____/ \ \_\\ \_\\ \_\ \_\\ \_\ \_\     ]],
+        [[        \/___/ \/_____/  \/_/    \/_/  \/___/   \/___/   \/_/ \/_/ \/_/\/_/ \/_/\/_/     ]],
+        [[                                                                                         ]],
+        [[                                                                                         ]],
+      }
 
-        "                                                          ",
-        "   _/_/_/_/_/  _/_/_/      _/_/    _/      _/    _/_/_/   ",
-        "      _/      _/    _/  _/    _/  _/_/    _/  _/          ",
-        "     _/      _/_/_/    _/    _/  _/  _/  _/  _/  _/_/     ",
-        "    _/      _/    _/  _/    _/  _/    _/_/  _/    _/      ",
-        "   _/      _/    _/    _/_/    _/      _/    _/_/_/       ",
-        "                                                          ",
-        "                                                          ",
+      dashboard.section.header.opts = {
+        position = "center",
+        hl = "DashboardHeader"
       }
 
       dashboard.section.buttons.val = {
