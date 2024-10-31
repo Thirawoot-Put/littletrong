@@ -5,17 +5,24 @@ return {
     config = function()
       local alpha = require("alpha")
       local dashboard = require("alpha.themes.dashboard")
+      local ctp = require("catppuccin.palettes").get_palette() -- Get the Catppuccin color palette
+
+      vim.api.nvim_set_hl(0, "DashboardHeader", { fg = ctp.lavender })
 
       dashboard.section.header.val = {
+        "                                                            ",
+        "    _/_/_/_/_/  _/_/_/      _/_/    _/      _/    _/_/_/    ",
+        "       _/      _/    _/  _/    _/  _/_/    _/  _/           ",
+        "      _/      _/_/_/    _/    _/  _/  _/  _/  _/  _/_/      ",
+        "     _/      _/    _/  _/    _/  _/    _/_/  _/    _/       ",
+        "    _/      _/    _/    _/_/    _/      _/    _/_/_/        ",
+        "                                                            ",
+        "                                                            ",
+      }
 
-        "                                                          ",
-        "   _/_/_/_/_/  _/_/_/      _/_/    _/      _/    _/_/_/   ",
-        "      _/      _/    _/  _/    _/  _/_/    _/  _/          ",
-        "     _/      _/_/_/    _/    _/  _/  _/  _/  _/  _/_/     ",
-        "    _/      _/    _/  _/    _/  _/    _/_/  _/    _/      ",
-        "   _/      _/    _/    _/_/    _/      _/    _/_/_/       ",
-        "                                                          ",
-        "                                                          ",
+      dashboard.section.header.opts = {
+        position = "center",
+        hl = "DashboardHeader"
       }
 
       dashboard.section.buttons.val = {
