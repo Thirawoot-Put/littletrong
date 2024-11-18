@@ -1,0 +1,133 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Caps Lock: Escape on tap, Left Control on hold",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "SuperDuper Mode and Arrow Key Navigation",
+                        "manipulators": [
+                            {
+                                "description": "S+D -> (S)uper(D)uper Mode",
+                                "from": {
+                                    "simultaneous": [
+                                        { "key_code": "s" },
+                                        { "key_code": "d" }
+                                    ],
+                                    "simultaneous_options": {
+                                        "detect_key_down_uninterruptedly": true,
+                                        "key_down_order": "insensitive",
+                                        "key_up_order": "insensitive",
+                                        "key_up_when": "any",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "superduper-mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "superduper-mode",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "superduper-mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "(S)uper(D)uper + H -> Left",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "superduper-mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "(S)uper(D)uper + J -> Down",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "down_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "superduper-mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "(S)uper(D)uper + K -> Up",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "up_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "superduper-mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "(S)uper(D)uper + L -> Right",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_arrow" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ],
+                "title": "Caps Lock and SuperDuper Mode"
+            },
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "left_option" },
+                    "to": [{ "key_code": "left_command" }]
+                }
+            ],
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}
