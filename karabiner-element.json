@@ -117,56 +117,18 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "description": "Right Shift to ')' when tapped",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "right_shift" }],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "0",
-                                        "modifiers": ["left_shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Left Shift to '(' when tapped",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "left_shift" }],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "9",
-                                        "modifiers": ["left_shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ],
                 "title": "Caps Lock and SuperDuper Mode"
             },
             "simple_modifications": [
                 {
-                    "from": { "key_code": "left_option" },
-                    "to": [{ "key_code": "left_command" }]
+                    "from": { "key_code": "backslash" },
+                    "to": [{ "key_code": "delete_or_backspace" }]
                 },
                 {
-                    "from": { "key_code": "left_control" },
-                    "to": [{ "key_code": "caps_lock" }]
+                    "from": { "key_code": "left_option" },
+                    "to": [{ "key_code": "left_command" }]
                 }
             ],
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
