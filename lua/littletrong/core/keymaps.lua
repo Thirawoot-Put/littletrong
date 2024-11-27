@@ -6,6 +6,10 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search hightlights" })
 
+keymap.set("n", "<leader>ww", ":w<CR>", { desc = "Write current buffer" })
+keymap.set("n", "<leader>wa", ":wall<CR>", { desc = "Write all change buffer" })
+keymap.set("n", "<leader>wq", ":wqall<CR>", { desc = "Write and quite all change buffer" })
+
 keymap.set("n", "<c-k>", ":wincmd k<CR>")
 keymap.set("n", "<c-j>", ":wincmd j<CR>")
 keymap.set("n", "<c-l>", ":wincmd l<CR>")
