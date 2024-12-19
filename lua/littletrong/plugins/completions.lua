@@ -74,18 +74,6 @@ return {
       }),
     })
 
-    -- Dadbod: Create an autocmd to apply the source to specific filetypes
-    -- vim.api.nvim_create_autocmd("FileType", {
-    --   pattern = { "sql", "mysql", "plsql" },
-    --   callback = function()
-    --     cmp.setup.buffer({
-    --       sources = {
-    --         { name = "vim-dadbod-completion" },
-    --       },
-    --     })
-    --   end,
-    -- })
-
     -- ******* use this for separate normal sql file and dadbod ********
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "sql", "mysql", "plsql" },
