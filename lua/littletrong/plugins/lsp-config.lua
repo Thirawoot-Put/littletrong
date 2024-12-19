@@ -5,12 +5,27 @@ return {
   --  Explanation from TJ: https://youtu.be/m8C0Cq9Uv9o?t=1275
   --
   -- This can vary by config, but in general for nvim-lspconfig:
-
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    lazy = true,
+    config = false,
+    init = function()
+      vim.g.lsp_zero_extend_cmp = 0
+      vim.g.lsp_zero_extend_lspconfig = 0
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    lazy = true,
+    config = true,
+  },
   {
     'neovim/nvim-lspconfig',
+    cmd = "LspInfo",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       'saghen/blink.cmp',
-      'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim'
     },
 
@@ -67,8 +82,32 @@ return {
     config = function(_, opts)
       require('mason').setup()
 
+      local lsp_zero = require("lsp-zero")
       local lspconfig = require('lspconfig')
       local mason_lspconfig = require('mason-lspconfig')
+
+      lsp_zero.extend_lspconfig()
+      lsp_zero.on_attach(function(client, bufnr)
+        -- see :help lsp-zero-keybindings
+        -- to learn the available actions
+        local opts = { buffer = bufnr }
+
+        lsp_zero.default_keymaps(opts)
+        vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>")
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+        vim.keymap.set("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+        vim.keymap.set("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+
+        lsp_zero.buffer_autoformat()
+      end)
+
+      lsp_zero.set_sign_icons({
+        error = "✘",
+        warn = "▲",
+        hint = "⚑",
+        info = "»",
+      })
 
       lspconfig.ts_ls.setup({
         root_dir = lspconfig.util.root_pattern(
@@ -93,6 +132,13 @@ return {
       mason_lspconfig.setup({
         ensure_installed = vim.tbl_keys(opts.servers), -- Automatically install listed servers
         automatic_installation = true,
+        handlers = {
+          lsp_zero.default_setup,
+          lua_ls = function()
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            lspconfig.lua_ls.setup(lua_opts)
+          end,
+        },
       })
 
       for server, config in pairs(opts.servers) do
