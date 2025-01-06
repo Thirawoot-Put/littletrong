@@ -8,5 +8,10 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
     })
+
+    vim.o.foldmethod = "expr"                     -- Use expression-based folding
+    vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- Treesitter fold expression
+    vim.o.foldenable = true                       -- Enable folding by default
+    vim.o.foldlevel = 99                          -- Start with all folds open
   end
 }
