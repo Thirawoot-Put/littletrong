@@ -10,7 +10,7 @@ keymap.set("n", "<leader>ww", ":w<CR>", { desc = "Write current buffer" })
 keymap.set("n", "<leader>wa", ":wall<CR>", { desc = "Write all change buffer" })
 keymap.set("n", "<leader>wq", ":wqall<CR>", { desc = "Write and quite all change buffer" })
 
-keymap.set("n", "<leader>Q", ":qall!<CR>", { desc = "Force quite all buffer" })
+keymap.set("n", "<leader>q", ":qall<CR>", { desc = "Quite all buffer" })
 
 keymap.set("n", "<c-k>", ":wincmd k<CR>")
 keymap.set("n", "<c-j>", ":wincmd j<CR>")
