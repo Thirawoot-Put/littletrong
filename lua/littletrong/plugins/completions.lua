@@ -14,10 +14,7 @@ return {
       -- see the "default configuration" section below for full documentation on how to define
       -- your own keymap.
       keymap = {
-        preset = 'default',
-        ['<C-k>'] = { 'select_prev', 'fallback' },
-        ['<C-j>'] = { 'select_next', 'fallback' },
-        ['<C-d>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        preset = 'enter',
       },
 
       appearance = {
@@ -39,6 +36,15 @@ return {
         window = {
           border = 'single'
         }
+      },
+
+      completion = {
+        accept = {
+          -- experimental auto-brackets support
+          auto_brackets = {
+            enabled = false,
+          },
+        },
       },
 
       sources = {
