@@ -15,8 +15,6 @@ return {
       -- your own keymap.
       keymap = {
         preset = 'enter',
-        ['<C-k>'] = { 'select_prev', 'fallback' },
-        ['<C-j>'] = { 'select_next', 'fallback' },
         ['<C-d>'] = { 'show', 'show_documentation', 'hide_documentation' },
       },
 

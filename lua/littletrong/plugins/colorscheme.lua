@@ -16,7 +16,7 @@ return {
   priority = 1000,
   config = function()
     require("tokyonight").setup({
-      style = "moon",
+      style = "night",
       on_colors = function(color)
         color.hint = color.orange
         color.error = "#ff0000"

@@ -35,7 +35,7 @@ return {
     { "<leader>un", function() Snacks.notifier.hide() end,         desc = "Dismiss All Notifications" },
     { "<c-/>",      function() Snacks.terminal() end,              desc = "Toggle Terminal" },
     {
-      "<c-t>",
+      "<leader>tt",
       function()
         Snacks.terminal.toggle("zsh", {
           env = { TERM = "xterm-256color" },
