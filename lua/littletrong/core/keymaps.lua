@@ -27,3 +27,7 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+
+-- Map Super + e to scroll down one line
+vim.api.nvim_set_keymap('n', '<D-e>', '<C-e>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<D-y>', '<C-y>', { noremap = true, silent = true })
