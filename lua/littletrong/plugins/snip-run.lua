@@ -14,5 +14,6 @@ return {
     local keymap = vim.keymap
 
     keymap.set("n", "<leader>xf", ":SnipRun<CR>", { desc = "Execute file with SnipRun" })
+    keymap.set("v", "X", ":'<,'>SnipRun<CR>", { desc = "Execute hover with SnipRun" })
   end,
 }
