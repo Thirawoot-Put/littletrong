@@ -90,14 +90,14 @@ return {
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
-        local opts = { buffer = bufnr }
+        local lsp_zero_opts = { buffer = bufnr }
 
-        lsp_zero.default_keymaps(opts)
+        lsp_zero.default_keymaps(lsp_zero_opts)
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>")
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-        vim.keymap.set("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-        vim.keymap.set("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, lsp_zero_opts)
+        vim.keymap.set("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", lsp_zero_opts)
+        vim.keymap.set("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>", lsp_zero_opts)
+        vim.keymap.set("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", lsp_zero_opts)
 
         lsp_zero.buffer_autoformat()
       end)
