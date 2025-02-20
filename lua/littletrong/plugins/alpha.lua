@@ -28,10 +28,11 @@ return {
       }
 
       dashboard.section.buttons.val = {
-        dashboard.button("e", "  > New file", "<cmd>ene <CR>"),
-        dashboard.button("SPC ee", "  > Toggle file explorer", ":NvimTreeToggle <CR>"),
-        dashboard.button("SPC ff", "  > Find file", ":Telescope find_files <CR>"),
-        dashboard.button("SPC fs", "  > Find text", ":Telescope live_grep <CR>"),
+        dashboard.button("L", "[0] > Open Lazy", "<cmd>Lazy <CR>"),
+        dashboard.button("M", "[1] > Open Lazy", "<cmd>Mason <CR>"),
+        dashboard.button("e", "  > Toggle file explorer", ":NvimTreeToggle <CR>"),
+        dashboard.button("f", "  > Find file", ":Telescope find_files <CR>"),
+        dashboard.button("s", "  > Find text", ":Telescope live_grep <CR>"),
       }
 
       dashboard.config.layout = {
