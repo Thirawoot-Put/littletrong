@@ -35,6 +35,9 @@ return {
         -- nls.builtins.diagnostics.erb_lint,
         -- nls.builtins.diagnostics.rubocop,
         -- nls.builtins.formatting.rubocop,
+
+        -- linter for Dockerfile
+        nls.builtins.diagnostics.hadolint,
       },
     })
 
