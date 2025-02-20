@@ -48,6 +48,7 @@ return {
         },
       },
 
+      snippets = { preset = 'luasnip' },
       sources = {
         -- add vim-dadbod-completion to your completion providers
         default = { "lsp", "path", "snippets", "buffer", "dadbod" },
