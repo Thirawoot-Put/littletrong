@@ -1,7 +1,13 @@
 return {
   {
     "ekalinin/Dockerfile.vim",
-    ft = { "dockerfile", "Dockerfile" }
+    ft = { "dockerfile", "Dockerfile" },
+    config = function()
+      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+        pattern = { "*Dockerfile*", "*.dockerfile" },
+        command = "setfiletype dockerfile",
+      })
+    end
   },
   {
     "andrewstuart/vim-kubernetes",
