@@ -93,6 +93,7 @@ return {
         local lsp_zero_opts = { buffer = bufnr }
 
         lsp_zero.default_keymaps(lsp_zero_opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, lsp_zero_opts)
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>")
         vim.keymap.set("n", "K", vim.lsp.buf.hover, lsp_zero_opts)
         vim.keymap.set("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", lsp_zero_opts)

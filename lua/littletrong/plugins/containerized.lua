@@ -4,8 +4,11 @@ return {
     ft = { "dockerfile", "Dockerfile" },
     config = function()
       vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-        pattern = { "*Dockerfile*", "*.dockerfile" },
-        command = "setfiletype dockerfile",
+        pattern = { "Dockerfile", "*.dockerfile", "*.Dockerfile" },
+        -- command = "setfiletype dockerfile",
+        callback = function()
+          vim.bo.filetype = "dockerfile"
+        end
       })
     end
   },
