@@ -18,6 +18,8 @@ return {
             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
           end,
         }),
+        nls.builtins.formatting.gofmt,
+        nls.builtins.formatting.goimports,
         nls.builtins.formatting.stylua,
         nls.builtins.formatting.sql_formatter,
         nls.builtins.formatting.prettier.with({
@@ -32,6 +34,7 @@ return {
             })
           end
         }),
+        nls.builtins.diagnostics.golangci_lint,
         -- nls.builtins.diagnostics.erb_lint,
         -- nls.builtins.diagnostics.rubocop,
         -- nls.builtins.formatting.rubocop,
