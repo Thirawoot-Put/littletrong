@@ -35,6 +35,7 @@ return {
           end
         }),
         nls.builtins.diagnostics.golangci_lint,
+        nls.builtins.formatting.buf,
         -- nls.builtins.diagnostics.erb_lint,
         -- nls.builtins.diagnostics.rubocop,
         -- nls.builtins.formatting.rubocop,

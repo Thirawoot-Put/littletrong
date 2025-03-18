@@ -76,6 +76,9 @@ return {
 
         -- php
         intelephense = {},
+
+        -- buffer, proto
+        buf_ls = {}
       }
     },
 
@@ -129,6 +132,7 @@ return {
           client.server_capabilities.documentRangeFormattingProvider = false
         end,
       })
+      lspconfig.buf_ls.setup({})
 
       mason_lspconfig.setup({
         ensure_installed = vim.tbl_keys(opts.servers), -- Automatically install listed servers
