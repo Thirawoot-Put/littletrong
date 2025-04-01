@@ -52,7 +52,7 @@ return {
       snippets = { preset = 'luasnip' },
       sources = {
         -- add vim-dadbod-completion to your completion providers
-        default = { "nvim_lsp", "luasnip", "lsp", "path", "snippets", "buffer", "dadbod" },
+        default = { "lsp", "path", "snippets", "buffer", "dadbod" },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
         },
