@@ -119,7 +119,7 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock: Escape on tap, Hyper on hold",
+                        "description": "Caps Lock: Escape on tap, Left controll on hold",
                         "manipulators": [
                             {
                                 "from": {
