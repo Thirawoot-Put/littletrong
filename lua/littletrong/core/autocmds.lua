@@ -21,3 +21,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     (vim.hl or vim.highlight).on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end
+})

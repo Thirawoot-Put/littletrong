@@ -98,6 +98,7 @@ return {
         lsp_zero.default_keymaps(lsp_zero_opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, lsp_zero_opts)
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>")
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, lsp_zero_opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, lsp_zero_opts)
         vim.keymap.set("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", lsp_zero_opts)
         vim.keymap.set("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>", lsp_zero_opts)
@@ -123,15 +124,24 @@ return {
           ".eslintrc.json"
         ),
       })
+
+      lspconfig.gopls.setup({
+        gofump = true,
+        staticcheck = true,
+        analyses = { unusedparams = true },
+      })
+
       lspconfig.golangci_lint_ls.setup({
         filetypes = { "go", "gomod" },
       })
+
       lspconfig.sqls.setup({
         on_attach = function(client, _)
           client.server_capabilities.documentFormattingProvider = false
           client.server_capabilities.documentRangeFormattingProvider = false
         end,
       })
+
       lspconfig.buf_ls.setup({})
 
       mason_lspconfig.setup({

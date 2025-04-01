@@ -3,6 +3,7 @@ return {
     'saghen/blink.cmp',
     dependencies = {
       'rafamadriz/friendly-snippets',
+      'neovim/nvim-lspconfig',
     },
 
     version = 'v0.*',
@@ -51,7 +52,7 @@ return {
       snippets = { preset = 'luasnip' },
       sources = {
         -- add vim-dadbod-completion to your completion providers
-        default = { "lsp", "path", "snippets", "buffer", "dadbod" },
+        default = { "nvim_lsp", "luasnip", "lsp", "path", "snippets", "buffer", "dadbod" },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
         },
