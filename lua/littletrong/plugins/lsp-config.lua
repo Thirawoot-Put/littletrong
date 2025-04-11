@@ -32,6 +32,9 @@ return {
     -- example using `opts` for defining servers
     opts = {
       servers = {
+        -- terraform-ls
+        terraformls = {},
+
         lua_ls = {},
         -- golang
         gopls = {},
@@ -130,6 +133,8 @@ return {
         staticcheck = true,
         analyses = { unusedparams = true },
       })
+
+      lspconfig.terraformls.setup {}
 
       lspconfig.golangci_lint_ls.setup({
         filetypes = { "go", "gomod" },

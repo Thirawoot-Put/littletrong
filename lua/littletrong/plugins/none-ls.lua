@@ -42,6 +42,11 @@ return {
 
         -- linter for Dockerfile
         nls.builtins.diagnostics.hadolint,
+
+        -- terraform
+        nls.builtins.formatting.packer,
+        nls.builtins.formatting.terraform_fmt,
+        nls.builtins.diagnostics.terraform_validate,
       },
     })
 
