@@ -134,7 +134,13 @@ return {
         analyses = { unusedparams = true },
       })
 
-      lspconfig.terraformls.setup {}
+      lspconfig.terraformls.setup({
+        settings = {
+          terraform = {
+            validateOnSave = true,
+          },
+        },
+      })
 
       lspconfig.golangci_lint_ls.setup({
         filetypes = { "go", "gomod" },
