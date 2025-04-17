@@ -25,3 +25,7 @@ opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true
+
+
+-- for obsidian rendering todo
+opt.conceallevel = 2
