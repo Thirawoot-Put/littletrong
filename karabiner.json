@@ -42,7 +42,7 @@
                                     }
                                 },
                                 "to": [
-                                    {"shell_command": "open -a 'Safari'"}
+                                    {"shell_command": "open -a 'Google Chrome'"}
                                 ],
                                 "type": "basic"
                             },
@@ -89,7 +89,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + s: To open Slack",
+                                "description": "Hyper + s: To open Discord",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
@@ -98,7 +98,7 @@
                                     }
                                 },
                                 "to": [
-                                    {"shell_command": "open -a 'Slack'"}
+                                    {"shell_command": "open -a 'Discord'"}
                                 ],
                                 "type": "basic"
                             },
@@ -113,6 +113,20 @@
                                 },
                                 "to": [
                                     {"shell_command": "open -a 'DBeaver'"}
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + N: To SecondBrain(Obsidian)",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "optional": ["any"],
+                                        "mandatory": ["left_shift","left_control","left_option","left_command"]
+                                    }
+                                },
+                                "to": [
+                                    {"shell_command": "open -a 'Obsidian'"}
                                 ],
                                 "type": "basic"
                             }
