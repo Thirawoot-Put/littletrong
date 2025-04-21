@@ -17,6 +17,33 @@
                                 },
                                 "to_if_held_down": [
                                     {
+                                        "key_code": "right_shift",
+                                        "modifiers": [
+                                            "right_control",
+                                            "right_option",
+                                            "right_command"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "backslash" }],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 200,
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                },
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Tab: Hold to Hyper (all modifiers) with other key maps; Tap to default (backslash)",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to_if_held_down": [
+                                    {
                                         "key_code": "left_shift",
                                         "modifiers": [
                                             "left_control",
@@ -25,10 +52,10 @@
                                         ]
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "backslash" }],
+                                "to_if_alone": [{ "key_code": "tab" }],
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 300,
-                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                    "basic.to_if_alone_timeout_milliseconds": 200,
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
                                 },
                                 "type": "basic"
                             },
