@@ -17,11 +17,11 @@
                                 },
                                 "to_if_held_down": [
                                     {
-                                        "key_code": "right_shift",
+                                        "key_code": "left_shift",
                                         "modifiers": [
-                                            "right_control",
-                                            "right_option",
-                                            "right_command"
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
                                         ]
                                     }
                                 ],
@@ -33,30 +33,17 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Tab: Hold to Hyper (all modifiers) with other key maps; Tap to default (backslash)",
+                                "description": "Hyper + M: Open Microsoft team",
                                 "from": {
-                                    "key_code": "tab",
+                                    "key_code": "m",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"],
+                                        "mandatory": ["left_shift","left_control","left_option","left_command"]
                                     }
                                 },
-                                "to_if_held_down": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": [
-                                            "left_control",
-                                            "left_option",
-                                            "left_command"
-                                        ]
-                                    }
+                                "to": [
+                                    {"shell_command": "open -a 'Microsoft Teams'"}
                                 ],
-                                "to_if_alone": [{ "key_code": "tab" }],
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
-                                },
                                 "type": "basic"
                             },
                             {
