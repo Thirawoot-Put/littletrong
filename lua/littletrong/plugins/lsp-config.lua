@@ -129,9 +129,20 @@ return {
       })
 
       lspconfig.gopls.setup({
-        gofump = true,
+        gofumpt = true,
         staticcheck = true,
         analyses = { unusedparams = true },
+      })
+
+      lspconfig.golangci_lint_ls.setup({
+        filetypes = { "go", "gomod" },
+        cmd = { "golangci-lint", "run", "--fix", "--out-format", "json" },
+        root_dir = lspconfig.util.root_pattern(".git", "go.mod", "go.work"),
+        -- settings = {
+        -- golangci_lint = {
+        --   linters = { "govet", "gosec", "staticcheck" },
+        -- }
+        -- }
       })
 
       lspconfig.terraformls.setup({
@@ -142,9 +153,6 @@ return {
         },
       })
 
-      lspconfig.golangci_lint_ls.setup({
-        filetypes = { "go", "gomod" },
-      })
 
       lspconfig.sqls.setup({
         on_attach = function(client, _)

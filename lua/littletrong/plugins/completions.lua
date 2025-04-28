@@ -66,32 +66,27 @@
 return {
   'hrsh7th/nvim-cmp',
   dependencies = {
-    'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lsp',
+    "hrsh7th/cmp-buffer", -- source for text in buffer
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-path",             -- source for file system paths
+    "L3MON4D3/LuaSnip",             -- snippet engine
+    "saadparwaiz1/cmp_luasnip",     -- for autocompletion
+    "rafamadriz/friendly-snippets", -- useful snippets
   },
   config = function()
     local cmp = require 'cmp'
 
     cmp.setup({
       snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-          -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
           require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-          -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-          -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-          -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-
-          -- For `mini.snippets` users:
-          -- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-          -- insert({ body = args.body }) -- Insert at cursor
-          -- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-          -- require("cmp.config").set_onetime({ sources = {} })
         end,
       },
       window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),

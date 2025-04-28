@@ -9,6 +9,7 @@ return {
     local mason_nls = require("mason-null-ls")
     mason_nls.setup({
       ensure_installed = { "prettier" },
+      automatic_installation = true,
     })
 
     nls.setup({
@@ -34,7 +35,7 @@ return {
             })
           end
         }),
-        nls.builtins.diagnostics.golangci_lint,
+        -- nls.builtins.diagnostics.golangci_lint,
         nls.builtins.formatting.buf,
         -- nls.builtins.diagnostics.erb_lint,
         -- nls.builtins.diagnostics.rubocop,
